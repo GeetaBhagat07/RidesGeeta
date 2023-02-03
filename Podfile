@@ -8,5 +8,6 @@ target 'Rides' do
   # Pods for Rides
 
 pod 'IQKeyboardManagerSwift', '6.3.0'
+pod 'ProgressHUD'
 
 end

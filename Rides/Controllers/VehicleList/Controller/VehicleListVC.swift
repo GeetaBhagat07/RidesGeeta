@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class VehicleListVC: BaseViewController {
 
@@ -40,6 +41,7 @@ class VehicleListVC: BaseViewController {
     
     // MARK: - Class Methods
     func setUpView(){
+        ProgressHUD.animationType = .circleStrokeSpin
         self.tableVehicleList.registerNIB(VehicleListCell.className)
         tableVehicleList.tableHeaderView = headerView
         tableVehicleList.estimatedSectionHeaderHeight = 40
@@ -61,9 +63,11 @@ class VehicleListVC: BaseViewController {
     
 
     @IBAction func submitButtonPressed(_ sender: Any) {
+        //ProgressHUD.show()
         self.viewModel.getMyVehicleList {
             DispatchQueue.main.async {
                 self.tableVehicleList.reloadData()
+                ProgressHUD.dismiss()
             }
         }
     }
@@ -72,7 +76,7 @@ class VehicleListVC: BaseViewController {
 
 // MARK: - Table View Delegate & DataSource(S) -
 
-
+/*
 extension VehicleListVC : UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -99,5 +103,41 @@ extension VehicleListVC : UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    
+}
+*/
+
+
+extension VehicleListVC : UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VehicleListCell.className, for: indexPath) as? VehicleListCell else { return UITableViewCell() }
+        
+        cell.lblVin?.text = "J89ZTPP10VJU97000"
+        cell.lblMakeAndModel?.text = "Audi A8"
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75;
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (viewModel.myVehicleList.count > 0) ?  40.0 : 0.0
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as? VehicleDetailsVC
+      
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     
 }

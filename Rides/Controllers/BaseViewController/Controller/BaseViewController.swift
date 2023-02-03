@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
     }
     
     func hideBackButton() {
-        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = false
     }
     
     func hideNavigationBar(_ hide: Bool, animated: Bool = true) {
