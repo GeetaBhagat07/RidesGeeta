@@ -43,11 +43,7 @@ class VehicleListVC: BaseViewController {
         self.tableVehicleList.registerNIB(VehicleListCell.className)
         tableVehicleList.tableHeaderView = headerView
         tableVehicleList.estimatedSectionHeaderHeight = 40
-        self.viewModel.getMyVehicleList {
-            DispatchQueue.main.async {
-                self.tableVehicleList.reloadData()
-            }
-        }
+  
         self.tableVehicleList.reloadData()
     }
     
@@ -64,6 +60,14 @@ class VehicleListVC: BaseViewController {
     }
     
 
+    @IBAction func submitButtonPressed(_ sender: Any) {
+        self.viewModel.getMyVehicleList {
+            DispatchQueue.main.async {
+                self.tableVehicleList.reloadData()
+            }
+        }
+    }
+    
 }
 
 // MARK: - Table View Delegate & DataSource(S) -

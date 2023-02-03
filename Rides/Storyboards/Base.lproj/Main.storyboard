@@ -50,12 +50,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter your text here" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-kg-LDb">
-                                <rect key="frame" x="30" y="119.99999999999999" width="333" height="28.333333333333329"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                <rect key="frame" x="30" y="120.00000000000001" width="333" height="30.666666666666671"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzF-Vo-3Mt">
-                                <rect key="frame" x="126.66666666666669" y="172.33333333333334" width="140" height="41"/>
+                                <rect key="frame" x="126.66666666666669" y="174.66666666666666" width="140" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="Sbn-yB-CRU"/>
                                     <constraint firstAttribute="height" constant="41" id="tLM-a2-MjP"/>
@@ -65,12 +65,15 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.59999999999999998" green="0.1176470588" blue="0.074509803920000006" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="Oal-Uh-kGd" eventType="touchUpInside" id="eUw-uo-DH0"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eN6-mS-GOw">
-                                <rect key="frame" x="0.0" y="243.33333333333331" width="393" height="608.66666666666674"/>
+                                <rect key="frame" x="0.0" y="245.66666666666669" width="393" height="606.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xiL-bd-Pl2">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
