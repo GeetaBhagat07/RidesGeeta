@@ -16,6 +16,7 @@ class VehicleListVC: BaseViewController {
     
     @IBOutlet weak var tableVehicleList: UITableView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var tfNumber: UITextField!
     
     //MARK:- Variables
     lazy var viewModel: VehicleListVM = {
@@ -23,6 +24,10 @@ class VehicleListVC: BaseViewController {
         self.baseVwModel = obj
         return obj
     }()
+    
+    
+    let textInputLimit = 3
+    
     
     // MARK: - View Loading
     override func viewDidLoad() {
@@ -45,6 +50,11 @@ class VehicleListVC: BaseViewController {
         self.tableVehicleList.registerNIB(VehicleListCell.className)
         tableVehicleList.tableHeaderView = headerView
         tableVehicleList.estimatedSectionHeaderHeight = 40
+        
+        tfNumber.textAlignment = .center
+        tfNumber.layer.borderWidth = 1
+        tfNumber.layer.cornerRadius = 4.0
+        tfNumber.delegate = self;
   
         self.tableVehicleList.reloadData()
     }
@@ -139,5 +149,69 @@ extension VehicleListVC : UITableViewDelegate, UITableViewDataSource{
       
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
+}
+
+extension VehicleListVC : UITextFieldDelegate{
+    
+
+   /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        //Prevent "0" characters as the first characters. (i.e.: There should not be values like "003" "01" "000012" etc.)
+        if textField.text?.count == 0 && string == "0" {
+            
+            return false
+        }
+        
+        /// will check the text input only numbers and limit is between 1 and 100
+        if ((textField.text!) + string).count > 100 {
+            
+            return false
+        }
+        
+//        if let textvalue = Int(string), textvalue <= textInputLimit{
+//            return true
+//        }
+
+        //Only allow numbers. No Copy-Paste text values.
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+          
+        return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+        &&  (textField.text?.count ?? 0) + string.count - range.length <= textInputLimit
+        
+    }*/
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+        {
+            let text = textField.text ?? ""
+            
+            
+            let updatedText = text.replacingCharacters(in: Range(range, in: text)!, with: string)
+            if let intValue = Int(updatedText), 1 <= intValue && intValue <= 100 {
+                return true
+            } else {
+                
+                //Prevent "0" characters as the first characters. (i.e.: There should not be values like "003" "01" "000012" etc.)
+                if textField.text?.count == 0 && string == "0" {
+                    
+                    return false
+                }
+                
+                /// will check the text input only numbers and limit is between 1 and 100
+                if ((textField.text!) + string).count > 100 {
+                    
+                    return false
+                }
+
+                
+                //Only allow numbers. No Copy-Paste text values.
+                let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+                  
+                return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+                &&  (textField.text?.count ?? 0) + string.count - range.length <= textInputLimit 
+            }
+
+        }
     
 }

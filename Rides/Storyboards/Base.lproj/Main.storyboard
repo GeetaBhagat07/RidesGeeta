@@ -56,10 +56,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter your text here" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-kg-LDb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your number here" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-kg-LDb">
                                 <rect key="frame" x="30" y="145" width="333" height="30.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30.666666666666657" id="WWe-Uj-1xr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzF-Vo-3Mt">
                                 <rect key="frame" x="126.66666666666669" y="199.66666666666666" width="140" height="41"/>
@@ -142,7 +145,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerView" destination="xiL-bd-Pl2" id="4Mc-Ao-bT9"/>
                         <outlet property="tableVehicleList" destination="eN6-mS-GOw" id="WUZ-NW-RQp"/>
+                        <outlet property="tfNumber" destination="wZn-kg-LDb" id="s6C-02-WdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bG2-gf-N34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
