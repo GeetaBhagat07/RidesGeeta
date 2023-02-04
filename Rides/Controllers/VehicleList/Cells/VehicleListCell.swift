@@ -22,4 +22,11 @@ class VehicleListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var setVehiclesData:VehicleListBase?{
+        didSet {
+            lblMakeAndModel?.text = setVehiclesData?.make_and_model
+            lblVin?.text = setVehiclesData?.vin
+        }
+    }
+    
 }

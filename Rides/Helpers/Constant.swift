@@ -153,7 +153,7 @@ enum DateEnum : String {
 }
 
 struct WebServicesApi {
-    static let listOfVehicles = "vehicle/random_vehicle"
+    static let listOfVehicles = "vehicle/random_vehicle?size="
     
 }
 

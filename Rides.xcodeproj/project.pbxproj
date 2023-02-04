@@ -46,6 +46,7 @@
 		1F87EDC5298ADF6C0012454D /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87EDC4298ADF6C0012454D /* CommonExtensions.swift */; };
 		1F87EDC9298AE0F60012454D /* VehicleListBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87EDC8298AE0F60012454D /* VehicleListBase.swift */; };
 		1F87EDCD298AE12E0012454D /* VehicleListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87EDCC298AE12E0012454D /* VehicleListVM.swift */; };
+		1F9637BB298DD29800FAD528 /* CarbonEmissionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9637BA298DD29800FAD528 /* CarbonEmissionsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		1F87EDC4298ADF6C0012454D /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		1F87EDC8298AE0F60012454D /* VehicleListBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListBase.swift; sourceTree = "<group>"; };
 		1F87EDCC298AE12E0012454D /* VehicleListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListVM.swift; sourceTree = "<group>"; };
+		1F9637BA298DD29800FAD528 /* CarbonEmissionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonEmissionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6085CC63865131224384FB73 /* Pods_Rides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6B6865677A5B21633C6747 /* Pods-Rides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rides.release.xcconfig"; path = "Target Support Files/Pods-Rides/Pods-Rides.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				1F87ED992987835F0012454D /* VehicleDetailsVC.swift */,
+				1F9637BC298DE80700FAD528 /* Cells */,
 			);
 			path = VehicleDetails;
 			sourceTree = "<group>";
@@ -304,6 +307,14 @@
 				1F87EDCC298AE12E0012454D /* VehicleListVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F9637BC298DE80700FAD528 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1F9637BA298DD29800FAD528 /* CarbonEmissionsCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A7AB58B0FED912BA8F38A30F /* Pods */ = {
@@ -442,6 +453,7 @@
 				1F87EDC9298AE0F60012454D /* VehicleListBase.swift in Sources */,
 				1F87EDCD298AE12E0012454D /* VehicleListVM.swift in Sources */,
 				1F87EDA62987884F0012454D /* UserService.swift in Sources */,
+				1F9637BB298DD29800FAD528 /* CarbonEmissionsCollectionViewCell.swift in Sources */,
 				1F87EDC5298ADF6C0012454D /* CommonExtensions.swift in Sources */,
 				1F87ED9A2987835F0012454D /* VehicleDetailsVC.swift in Sources */,
 				1F87ED9529877F210012454D /* EditingView.swift in Sources */,

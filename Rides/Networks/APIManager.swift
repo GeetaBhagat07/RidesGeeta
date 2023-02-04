@@ -13,9 +13,9 @@ class APIManager {
     let jsonDecoder = JSONDecoder()
     
     ///API to fetch the list of vehicles
-    func myVehicleList(completionHandler:@escaping(_ responseData:[VehicleListBase])->()){
+    func myVehicleList(size : String?,completionHandler:@escaping(_ responseData:[VehicleListBase])->()){
         
-        WebServices.shared.apiMethodWithoutParamAndBaseUrl(urlComponent:BaseURL.base_url_dev + WebServicesApi.listOfVehicles, httpMethod: HttpMethods.get, authorizationRequired: false) { (responseData, responseError) in
+        WebServices.shared.apiMethodWithoutParamAndBaseUrl(urlComponent:BaseURL.base_url_dev + WebServicesApi.listOfVehicles + (size ?? "1") , httpMethod: HttpMethods.get, authorizationRequired: false) { (responseData, responseError) in
             
 
             do {

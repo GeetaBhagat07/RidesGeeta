@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,13 +57,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your number here" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-kg-LDb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter number here" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-kg-LDb">
                                 <rect key="frame" x="30" y="145" width="333" height="30.666666666666657"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30.666666666666657" id="WWe-Uj-1xr"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="cc-number"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzF-Vo-3Mt">
                                 <rect key="frame" x="126.66666666666669" y="199.66666666666666" width="140" height="41"/>
@@ -194,12 +192,68 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="moK-PO-1i6">
+                                        <rect key="frame" x="119.66666666666669" y="260" width="154" height="130"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="154" id="NKn-xC-rYo"/>
+                                            <constraint firstAttribute="height" constant="130" id="QZs-48-G1j"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pR1-Rq-sa5">
+                                            <size key="itemSize" width="151" height="105"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarbonEmissionsCollectionViewCell" id="NJc-vy-o2D" customClass="CarbonEmissionsCollectionViewCell" customModule="Rides" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="12.666666666666666" width="151" height="105"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iP0-Wq-tuM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="105"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4k-Hr-Jfr">
+                                                            <rect key="frame" x="5" y="11" width="141" height="83"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="83" id="LHO-7Q-6tS"/>
+                                                                <constraint firstAttribute="width" constant="141" id="exs-kc-0Df"/>
+                                                            </constraints>
+                                                            <string key="text">Estimated carbon
+emissions</string>
+                                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="R4k-Hr-Jfr" secondAttribute="trailing" constant="5" id="6jJ-tf-fWX"/>
+                                                        <constraint firstItem="R4k-Hr-Jfr" firstAttribute="top" secondItem="iP0-Wq-tuM" secondAttribute="top" constant="11" id="aUR-Cg-ZRq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="R4k-Hr-Jfr" secondAttribute="bottom" constant="11" id="dVy-gb-ylM"/>
+                                                        <constraint firstItem="R4k-Hr-Jfr" firstAttribute="leading" secondItem="iP0-Wq-tuM" secondAttribute="leading" constant="5" id="feC-lK-4ag"/>
+                                                        <constraint firstAttribute="trailing" secondItem="R4k-Hr-Jfr" secondAttribute="trailing" constant="5" id="iSl-7p-VvU"/>
+                                                        <constraint firstItem="R4k-Hr-Jfr" firstAttribute="leading" secondItem="iP0-Wq-tuM" secondAttribute="leading" constant="5" id="ybB-k5-rLk"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="151" height="105"/>
+                                                <connections>
+                                                    <outlet property="lblCarbon" destination="R4k-Hr-Jfr" id="QBU-dY-bdc"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="fkw-LD-5kq" id="OJg-SW-Nl8"/>
+                                            <outlet property="delegate" destination="fkw-LD-5kq" id="9Yb-m0-gOe"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="moK-PO-1i6" firstAttribute="centerX" secondItem="sIQ-NA-3lB" secondAttribute="centerX" id="3ZT-Kz-Mbk"/>
                                     <constraint firstItem="5Rp-K7-OWc" firstAttribute="leading" secondItem="sIQ-NA-3lB" secondAttribute="leading" constant="20" id="JDq-Z3-KVx"/>
                                     <constraint firstAttribute="trailing" secondItem="5Rp-K7-OWc" secondAttribute="trailing" constant="20" id="MSq-rN-AHT"/>
                                     <constraint firstItem="5Rp-K7-OWc" firstAttribute="top" secondItem="sIQ-NA-3lB" secondAttribute="top" constant="10" id="m21-jA-wYI"/>
+                                    <constraint firstItem="moK-PO-1i6" firstAttribute="top" secondItem="5Rp-K7-OWc" secondAttribute="bottom" constant="60" id="qOE-gK-wA0"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-LW-7Ww">
@@ -249,6 +303,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cmCollectionVW" destination="moK-PO-1i6" id="rqu-mN-rq4"/>
                         <outlet property="lblCarType" destination="8sT-qe-Ryg" id="67H-fU-cu3"/>
                         <outlet property="lblColor" destination="wiG-Lw-HXi" id="0eM-bu-734"/>
                         <outlet property="lblMakeModel" destination="ro6-ya-yvH" id="LOB-d2-4pD"/>

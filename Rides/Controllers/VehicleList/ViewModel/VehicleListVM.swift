@@ -20,9 +20,11 @@ class VehicleListVM: BaseViewModel {
         self.userService = userService
     }
     
+ 
+    
     //MARK:- Webservice
-    func getMyVehicleList(completion:@escaping()->()){
-        APIManager.shared.myVehicleList { (response) in
+    func getMyVehicleList(size : String?,completion:@escaping()->()){
+        APIManager.shared.myVehicleList(size: size) { (response) in
             
             self.myVehicleList = response
             self.myVehicleList = self.myVehicleList.sorted(by: { list1, list2 in
